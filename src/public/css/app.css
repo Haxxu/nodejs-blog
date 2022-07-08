@@ -1,0 +1,5 @@
+.test {
+  font-size: 2rem;
+  background-color: red; }
+  .test:hover {
+    color: yellow; }

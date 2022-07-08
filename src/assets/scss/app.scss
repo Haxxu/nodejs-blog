@@ -1,0 +1,10 @@
+@import 'variables';
+
+.test {
+    font-size: 2rem;
+    background-color: $red-color;
+
+    &:hover {
+        color: yellow;
+    }
+}
