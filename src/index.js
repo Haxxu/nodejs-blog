@@ -1,30 +1,30 @@
-const path = require("path");
-const express = require("express");
-const morgan = require("morgan");
-const { engine } = require("express-handlebars");
+const path = require('path');
+const express = require('express');
+const morgan = require('morgan');
+const { engine } = require('express-handlebars');
 const app = express();
 const port = 3000;
 
 const route = require('./routes');
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 // Apply middle ware
 // XMLHttpRequest, fetch, axios, ... thì sẽ submit theo kiểu khác
 app.use(express.urlencoded({ extended: true })); // dùng cho form
-app.use(express.json());
+            app.use(express.json());
 
 // HTTP logger
-app.use(morgan("combined"));
+    app.use(morgan('combined'));
 
 // Template engine
 app.engine(
-    "hbs",
+    'hbs',
     engine({
-        extname: ".hbs",
-    })
+        extname: '.hbs',
+    }),
 );
-app.set("view engine", "hbs");
-app.set("views", path.join(__dirname, "assets/views"));
+app.set('view engine', "hbs");
+app.set('views', path.join(__dirname, 'assets/views'));
 
 // Routes init
 route(app);
